@@ -1,4 +1,4 @@
-public static void Expression1 (String str)//用于处理字符串中的系数，将多项式系数变成易于操作的数据结构
+public static void Change (String str)//用于处理字符串中的系数，将多项式系数变成易于操作的数据结构
 
 	{
 		ArrayList<String> xishuf  =  new ArrayList<String>();
