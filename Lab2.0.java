@@ -43,7 +43,7 @@ public class lab
 	public static ArrayList<Integer> index=new ArrayList<Integer>();
 	public static void main(String[] args)
 	{
-		System.out.println("hahaha");
+		System.out.println("hahaha2.0");
 		String s = null;
 		Date d = new Date();
 
