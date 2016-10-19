@@ -7,11 +7,11 @@ import java.util.function.DoubleToLongFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import java.text.DateFormat;  
-import java.text.ParseException;  
-import java.text.SimpleDateFormat;  
-import java.util.Calendar;  
-import java.util.Date; 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.imageio.stream.ImageInputStream;
 
@@ -21,15 +21,15 @@ import org.omg.CORBA.PUBLIC_MEMBER;
  1.实现了小数的功能，但是小数一般不能作为幂运算的指数；
  2.实现了幂运算的功能（不仅局限于变量，系数的次方也可以计算成十进制）；
  3.数字于变量之间的*可以忽略不进行输入；
- 4.可以包含空格、tab等字符； 
- 5.多项式中的变量可以使用长度>1 的字符串表示； 
- 6.在出现“+”的位置，可以使用 “-”； 
+ 4.可以包含空格、tab等字符；
+ 5.多项式中的变量可以使用长度>1 的字符串表示；
+ 6.在出现“+”的位置，可以使用 “-”；
  测试用例：
 //2*x*z+3*x*z^3-z^2+2
-//!simplify x=2 
+//!simplify x=2
 //!d/dz
  */
-public class lab 
+public class lab
 {
 	public static ArrayList<Double> xishu =  new ArrayList<Double>() ;
 	public static ArrayList<String> bianliang =new ArrayList<String>();
@@ -42,15 +42,15 @@ public class lab
 	public static ArrayList<String> bianliangnew =new ArrayList<String>();
 	public static ArrayList<Integer> index=new ArrayList<Integer>();
 	public static void main(String[] args)
-	{	
-		
+	{
+		System.out.println("lalala");
 		String s = null;
 		Date d = new Date();
-		
-		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-        s = sdf.format(d);  
-        System.out.println("当前时间为："+s); 
-		
+
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        s = sdf.format(d);
+        System.out.println("当前时间为："+s);
+
 		String duoxiangshi="";
 		String order1="";
 		String order2="";
@@ -58,18 +58,18 @@ public class lab
 		{
 			duoxiangshi="";
 			duoxiangshi=In();//为了避免输入错误，规定输入的系数带有^必须放在所有系数的最后输入
-			
+
 			Calendar c = Calendar.getInstance();
-			
+
 			if (duoxiangshi.equals("exit"))
 			{
 				break;
 			}
 			duoxiangshi=Check(duoxiangshi);
-			
+
 			Calendar c1 = Calendar.getInstance();
-			System.out.println("输出多项式算法共用时：" + (c1.getTimeInMillis()-c.getTimeInMillis())+"毫秒"); 
-			
+			System.out.println("输出多项式算法共用时：" + (c1.getTimeInMillis()-c.getTimeInMillis())+"毫秒");
+
 			xishu.clear();
 			bianliang.clear();
 			jiajian.clear();
@@ -79,7 +79,7 @@ public class lab
 			xishu3.clear();
 			xishunew.clear();
 			bianliangnew.clear();
-			
+
 			Expression1 (duoxiangshi);
 			Expression2 (duoxiangshi);
 			Expression3 (duoxiangshi);
@@ -88,7 +88,7 @@ public class lab
 			Simplify(order1);
 			Calendar c3 = Calendar.getInstance();
 			System.out.println("赋值算法共用时：" + (c3.getTimeInMillis()-c2.getTimeInMillis())+"毫秒");
-			
+
 			xishu.clear();
 			bianliang.clear();
 			jiajian.clear();
@@ -98,23 +98,23 @@ public class lab
 			xishu3.clear();
 			xishunew.clear();
 			bianliangnew.clear();
-			
+
 			Expression1 (duoxiangshi);
 			Expression2 (duoxiangshi);
 			Expression3 (duoxiangshi);
-			
+
 			order2=In();
 			Calendar c4 = Calendar.getInstance();
 			Derivative(order2,duoxiangshi);
 			Calendar c5 = Calendar.getInstance();
 			System.out.println("求导算法共用时：" + (c5.getTimeInMillis()-c4.getTimeInMillis())+"毫秒");
-			
-		}	
+
+		}
 		String s1 = null;
 		Date d1 = new Date();
-		DateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
-        s1 = sdf1.format(d1);  
-        System.out.println("当前时间为："+s1); 
+		DateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        s1 = sdf1.format(d1);
+        System.out.println("当前时间为："+s1);
 	}
 	public static String In()//输入函数
 	{
@@ -137,7 +137,7 @@ public class lab
 			str=str.replaceAll(" *", "");//处理空格，将所有空格都替换成空
 			str=str.replaceAll("	*", "");//处理tab，将所有空格都替换成空
 			System.out.println(str);
-			
+
 		}
 		return str;
 	}
@@ -247,7 +247,7 @@ public class lab
 		}
 		bianliangnew=bianliang;
 		//System.out.println(bianliang);
-		
+
 	}
 	public static void Expression3(String str)//用于处理字符串中的加减号
 
@@ -325,7 +325,7 @@ public class lab
 		ArrayList<String>bianliangf=new ArrayList<String>();
 		String regx2="\\*?[a-z]+\\^[1-9]+[0-9]*";//用于寻找幂运算
 		String regx3="\\*?[a-z]+";//用于寻找x 或者 *x
-		
+
 			chengfang.clear();
 			bianliangf.clear();
 			Pattern p=Pattern.compile(regx2);
@@ -351,7 +351,7 @@ public class lab
 				temp=temp+s2;
 			}
 			bianliang2.add(temp);
-		
+
 	}
 	public static void Output()
 	{
@@ -374,7 +374,7 @@ public class lab
 		jiajian.add("");
 		for (int j=0 ;j< bianliang3.size() & j< xishu3.size();j++ )
 		{
-			
+
 				int falg=1;
 				for(int i=0;i<index.size();i++)
 				{
@@ -388,7 +388,7 @@ public class lab
 					String temp1="";
 					temp1=xishu3.get(j)+bianliang3.get(j)+jiajian.get(j);
 					temp2=temp2+temp1;
-				}			
+				}
 		}
 		Pattern p=Pattern.compile("[0-9]+\\.[0-9]+[a-z]+");
 		Matcher m=p.matcher(temp2);
@@ -478,13 +478,13 @@ public class lab
 			Matcher m=p.matcher(bianliang3.get(i));
 			String temp="";
 			String regx1="\\*?"+order+"\\^[0-9]+";
-			
+
 			while (m.find())
 			{
 				String temp3=m.group();
 				int index0=bianliang3.get(i).indexOf(temp3);
 				if( index0+1<bianliang3.get(i).length())
-				{	
+				{
 					if( bianliang3.get(i).charAt(index0+1)=='^')
 					{
 						Pattern p1=Pattern.compile(regx1);
@@ -506,7 +506,7 @@ public class lab
 							bianliang3.remove(i);
 							bianliang3.add(i,s1);
 						}
-						else 
+						else
 						{
 							double num=xishu3.get(i);
 							num=num*(temp2);
@@ -518,7 +518,7 @@ public class lab
 							bianliang3.add(i,s2);
 						}
 					}
-										
+
 				}
 				else
 				{
@@ -528,7 +528,7 @@ public class lab
 					bianliang3.add(i, s2);
 				}
 			}
-						
+
 		}
 		for(int k=0;k<bianliang3.size();k++)
 		{
