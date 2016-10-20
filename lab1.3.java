@@ -2,6 +2,7 @@
 public static void Change (String str)//用于处理字符串中的系数，将多项式系数变成易于操作的数据结构
 
 	{
+	    System.out.println("hahaha");
 		ArrayList<String> xishuf  =  new ArrayList<String>();
 		String regx1="\\+|\\-";//按照+或者减号
 		String[] arryinshi=str.split(regx1);//将整个多项式分解成多个因式

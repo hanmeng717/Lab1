@@ -1,6 +1,7 @@
 修改@2
 public static String In()//输入函数
 	{
+	    System.out.println("hahaha");
 		Scanner input=new Scanner(System.in);
 		String duoxiangshi=input.nextLine();//读入多项式，将字符串保存到字符串duoxiangshi中
 		return duoxiangshi;
@@ -20,7 +21,7 @@ public static String In()//输入函数
 			str=str.replaceAll(" *", "");//处理空格，将所有空格都替换成空
 			str=str.replaceAll("	*", "");//处理tab，将所有空格都替换成空
 			System.out.println(str);
-			
+
 		}
 		return str;
 	}
