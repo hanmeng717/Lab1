@@ -542,3 +542,6 @@ public class lab
 		Output2();
 	}
 }
+
+
+/*For the first time to modify*/
