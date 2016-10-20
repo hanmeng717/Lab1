@@ -1,3 +1,4 @@
+修改@2
 public static String In()//输入函数
 	{
 		Scanner input=new Scanner(System.in);
